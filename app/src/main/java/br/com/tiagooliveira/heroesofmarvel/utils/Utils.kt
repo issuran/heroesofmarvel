@@ -7,5 +7,6 @@ class Utils{
         const val hash = "50227c4a98d8d56c373c4a300738b9c0"
         var offset = 0
         var limit = 20
+        val heroCode = "herocode"
     }
 }
