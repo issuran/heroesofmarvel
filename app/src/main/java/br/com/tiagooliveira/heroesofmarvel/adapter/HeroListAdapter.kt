@@ -46,8 +46,11 @@ class HeroListAdapter(context: Context) : RecyclerView.Adapter<HeroListAdapter.H
         private var view: View = v
 
         fun bindHero(hero: Hero, position: Int){
+
+            val imagePath: String = hero.thumbnail.path + "." + hero.thumbnail.extension
+
             Picasso.get()
-                .load(hero.image)
+                .load(imagePath)
                 .placeholder(R.color.colorAccent)
                 .into(this.view.imageViewHeroList)
         }
