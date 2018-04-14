@@ -1,6 +1,7 @@
 package br.com.tiagooliveira.heroesofmarvel.model
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 
-data class HeroThumbnail (@Json(name="path") val path: String = "",
-                          @Json(name="extension") val extension: String = "")
+data class HeroThumbnail (@SerializedName("path") val path: String = "http://freepngimg.com/download/megaman/20003-5-megaman",
+                          @SerializedName("extension") val extension: String = "png")
