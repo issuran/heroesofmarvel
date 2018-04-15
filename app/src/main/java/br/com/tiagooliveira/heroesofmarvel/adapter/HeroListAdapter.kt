@@ -34,7 +34,7 @@ class HeroListAdapter(context: Context) : RecyclerView.Adapter<HeroListAdapter.H
     override fun onBindViewHolder(holder: HeroHolder, position: Int) {
         val hero = mHeroList.get(position)
 
-        holder.bindHero(hero, position, mContext)
+        holder.bindHero(hero, mContext)
 
     }
 
@@ -52,7 +52,7 @@ class HeroListAdapter(context: Context) : RecyclerView.Adapter<HeroListAdapter.H
         var mHero: Hero? = null
         var mContext: Context? = null
 
-        fun bindHero(hero: Hero, position: Int, context: Context){
+        fun bindHero(hero: Hero, context: Context){
             mContext = context
             mHero = hero
 
