@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="@layout/activity_hero_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.tiagooliveira.heroesofmarvel.activity.HeroDetailsActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgHero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:layout_marginTop="160dp"
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:text="Description"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtHeroDescription"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque sed elit bibendum molestie. Curabitur interdum tellus in mauris aliquet venenatis. Cras est justo, consectetur eget lorem volutpat, maximus lacinia orci. Morbi gravida magna elit, blandit finibus sapien sagittis ut. Sed malesuada eget urna lobortis semper. Aenean sapien urna, lacinia a maximus a, rutrum maximus metus. Aliquam porttitor, sem ac congue commodo, nibh eros lacinia quam, vel imperdiet felis nisi et lectus. Morbi efficitur nulla et lacus fringilla accumsan."/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
