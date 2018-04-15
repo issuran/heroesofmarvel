@@ -1,15 +1,13 @@
 package br.com.tiagooliveira.heroesofmarvel.activity
 
 import android.os.Bundle
-import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.app.AppCompatActivity
 import br.com.tiagooliveira.heroesofmarvel.R
 import br.com.tiagooliveira.heroesofmarvel.model.Hero
 import br.com.tiagooliveira.heroesofmarvel.utils.Utils
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_details_hero.*
 import kotlinx.android.synthetic.main.activity_hero_detail.*
-import kotlinx.android.synthetic.main.content_hero_detail.view.*
+import kotlinx.android.synthetic.main.content_hero_detail.*
 
 class HeroDetailsActivity : AppCompatActivity() {
 
