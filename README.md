@@ -6,11 +6,13 @@ Heroes Of Marvel is an app to display info about heroes of Marvel, to achieve it
 - Retrofit2;
 - Picasso;
 - Gson;
-- Kotlin
+- Kotlin;
+- Kanban
 
 # The Road So Far
 Heroes Of Marvel v.1.0
 - In this stable version, we have achieve most of the expected for this app
+We can follow its progress by the Kanban board : https://github.com/issuran/heroesofmarvel/projects/1
 
 # Done
 
