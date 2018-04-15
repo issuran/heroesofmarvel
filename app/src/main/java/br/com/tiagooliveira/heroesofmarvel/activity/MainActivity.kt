@@ -11,6 +11,7 @@ import br.com.tiagooliveira.heroesofmarvel.model.Hero
 import br.com.tiagooliveira.heroesofmarvel.model.MarvelCharacters
 import br.com.tiagooliveira.heroesofmarvel.service.RetrofitInitializer
 import br.com.tiagooliveira.heroesofmarvel.utils.Utils
+import okhttp3.internal.Util
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,11 +36,33 @@ class MainActivity : AppCompatActivity() {
 
         mRecyclerView!!.adapter = mAdapter
 
-        retrieveHeroes()
+        retrieveHeroes(Utils.offset)
+
+        mRecyclerView!!.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                var loading: Boolean = true
+
+                if( dy > 0 ){
+                    var visibleItem = mLayoutManager!!.childCount
+                    var totalItemCount = mLayoutManager!!.itemCount
+                    var pastVisibleItems = mLayoutManager!!.findFirstVisibleItemPosition()
+
+                    if(loading){
+                        if( (visibleItem + pastVisibleItems) >= totalItemCount){
+                            loading = false
+                            Log.d("RECYCLER", "Last Item Reached")
+                            retrieveHeroes(Utils.offset + 100)
+                        }
+                    }
+                }
+            }
+        })
     }
 
-    fun retrieveHeroes(){
-        val call = RetrofitInitializer().getAllHeroes(Utils.timestamp, Utils.apikey, Utils.hash, Utils.offset, Utils.limit)
+    fun retrieveHeroes(offset: Int){
+        val call = RetrofitInitializer().getAllHeroes(Utils.timestamp, Utils.apikey, Utils.hash, offset, Utils.limit)
         call.enqueue(object : Callback<MarvelCharacters>{
             override fun onFailure(call: Call<MarvelCharacters>?, t: Throwable?) {
                 Log.d("RETROFIT","FALHOU")
@@ -54,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                     if(heroes != null && heroes.data.result.size > 0 && mAdapter != null){
                         arrayHeroes.addAll(heroes.data.result)
                         mAdapter!!.setHeroesList(arrayHeroes)
-                        Utils.offset += 100
+                        Utils.offset = Utils.offset + 100
                     }
 
                     Log.d("RETROFIT","DEU CERTO")
