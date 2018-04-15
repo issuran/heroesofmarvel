@@ -64,6 +64,8 @@ class HeroListAdapter(context: Context) : RecyclerView.Adapter<HeroListAdapter.H
                 .load(imagePath)
                 .placeholder(R.color.colorAccent)
                 .into(this.view.imageViewHeroList)
+
+            this.view.txtHeroName.text = hero.name
         }
 
         override fun onClick(v: View?) {
